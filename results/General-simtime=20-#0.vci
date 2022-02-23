@@ -1,0 +1,189 @@
+file 74885 1532183302                                           
+version 2
+run General-0-20180721-16:27:19-29184
+attr configname General
+attr datetime 20180721-16:27:19
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars $simtime=20
+attr iterationvarsf simtime=20-
+attr measurement $simtime=20
+attr network Finalnwk
+attr processid 29184
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar simtime 20
+param **.numInputHooks 1
+param **.numOutputHooks 1
+param **.inputHook[0].typename "\"ThruputMeter\""
+param **.outputHook[0].typename "\"ThruputMeter\""
+param **.maxInterval 1s
+param **.batchSize 10000
+param **.constraintAreaMinX 0m
+param **.constraintAreaMinY 0m
+param **.constraintAreaMinZ 0m
+param **.constraintAreaMaxX 600m
+param **.constraintAreaMaxY 400m
+param **.constraintAreaMaxZ 0m
+param **.mobilityType "\"StationaryMobility\""
+param **.mobility.initFromDisplayString false
+param **.routerCH.mobility.initialX 158m
+param **.routerCH.mobility.initialY 211m
+param **.routerLab.mobility.initialX 158m
+param **.routerLab.mobility.initialY 77m
+param **.headAP.mobility.initialX 158m
+param **.headAP.mobility.initialY 324m
+param **.headAP.mobility.initialZ 0m
+param **.truck[*].mobility.initialX "249m + uniform(0m, 100m)"
+param **.truck[*].mobility.initialY "369m + uniform(0m, 30m)"
+param **.truck[*].mobility.initialZ 0m
+param **.FTPtruck.mobility.initialX 316m
+param **.FTPtruck.mobility.initialY 325m
+param **.HTTPserver.mobility.initialX 287m
+param **.HTTPserver.mobility.initialY 211m
+param **.FTPserver.mobility.initialX 316m
+param **.FTPserver.mobility.initialY 19m
+param **.UDPserver.mobility.initialX 316m
+param **.UDPserver.mobility.initialY 90m
+param **.SensorCar.mobility.initialX 49m
+param **.SensorCar.mobility.initialY 330m
+param **.truck[*].numTcpApps 1
+param **.truck[*].tcpApp[0].typename "\"TCPBasicClientApp\""
+param **.truck[*].tcpApp[0].requestLength 200B
+param **.truck[*].tcpApp[0].replyLength 400kB
+param **.truck[*].tcpApp[0].localPort -1
+param **.truck[*].tcpApp[0].connectPort 80
+param **.truck[*].tcpApp[0].connectAddress "\"HTTPserver\""
+param **.truck[*].tcpApp[0].numRequestsPerSession 1
+param **.truck[*].tcpApp[0].thinkTime 0s
+param **.truck[*].tcpApp[0].idleInterval 100ms
+param **.HTTPserver.numTcpApps 1
+param **.HTTPserver.tcpApp[0].typename "\"TCPGenericSrvApp\""
+param **.HTTPserver.tcpApp[0].localAddress "\"HTTPserver\""
+param **.HTTPserver.tcpApp[0].localPort 80
+param **.FTPtruck.numTcpApps 1
+param **.FTPtruck.tcpApp[0].typename "\"TCPBasicClientApp\""
+param **.FTPtruck.tcpApp[0].connectAddress "\"FTPserver\""
+param **.FTPtruck.tcpApp[0].localAddress "\"FTPtruck\""
+param **.FTPtruck.tcpApp[0].localPort -1
+param **.FTPtruck.tcpApp[0].connectPort 21
+param **.FTPtruck.tcpApp[0].requestLength 100MB
+param **.FTPtruck.tcpApp[0].replyLength 100B
+param **.FTPtruck.tcpApp[0].thinkTime 0s
+param **.FTPtruck.tcpApp[0].idleInterval 0s
+param **.FTPserver.numTcpApps 1
+param **.FTPserver.tcpApp[0].typename "\"TCPSinkApp\""
+param **.FTPserver.tcpApp[0].localAddress "\"FTPserver\""
+param **.FTPserver.tcpApp[0].localPort 21
+param **.SensorCar.numUdpApps 1
+param **.SensorCar.udpApp[0].typename "\"UDPHookedApp\""
+param **.SensorCar.udpApp[0].localAddress "\"SensorCar\""
+param **.SensorCar.udpApp[0].localPort 1001
+param **.SensorCar.udpApp[0].destPort 1000
+param **.SensorCar.udpApp[0].destAddresses "\"UDPserver\""
+param **.SensorCar.udpApp[0].startTime 5s
+param **.SensorCar.udpApp[0].messageLength uniform(200B,700B)
+param **.SensorCar.udpApp[0].sendInterval 20ms
+param **.UDPserver.numUdpApps 1
+param **.UDPserver.udpApp[0].typename "\"UDPHookedApp\""
+param **.UDPserver.udpApp[0].localAddress "\"UDPserver\""
+param **.UDPserver.udpApp[0].localPort 1000
+param **.UDPserver.udpApp[0].destPort 1001
+param **.UDPserver.udpApp[0].destAddresses "\"SensorCar\""
+param **.UDPserver.udpApp[0].startTime 5s
+param **.UDPserver.udpApp[0].messageLength uniform(200B,700B)
+param **.UDPserver.udpApp[0].sendInterval 20ms
+param **.tcpType "\"TCP\""
+param **.tcp.tcpAlgorithmClass "\"TCPNewReno\""
+param **.tcp.windowScalingSupport true
+param **.tcpApp[*].dataTransferMode "\"object\""
+param **.tcp.mss 1460
+param **.tcp.advertisedWindow 1460000
+param **.networkConfiguratorModule "\"configurator\""
+param **.queueType "\"DropTailQueue\""
+param **.queue.frameCapacity 100
+param **.receiver.sensitivity -110dBm
+param **.mac.address "\"auto\""
+param **.mac.maxQueueSize 50
+param **.mac.rtsThresholdBytes 3000B
+param **.wlan[*].mac.retryLimit 7
+param **.wlan[*].mac.cwMinData 7
+param **.opMode "\"g(mixed)\""
+param **.wlan[*].bitrate 54Mbps
+param **.pathLoss.alpha 2
+
+vector 0 Finalnwk.SensorCar.udpApp[0] sentPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, vector(packetBytes)"
+vector 1 Finalnwk.SensorCar.udpApp[0] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, vector(packetBytes)"
+vector 2 Finalnwk.SensorCar.udpApp[0] throughput:vector ETV
+attr source throughput(rcvdPk)
+attr title "throughput, vector"
+attr unit bps
+vector 3 Finalnwk.SensorCar.udpApp[0] rcvdPkLifetime:vector ETV
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "received packet lifetime, vector"
+attr unit s
+vector 4 Finalnwk.SensorCar.udpApp[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(rcvdPk)
+attr title "received packet sequence number, vector"
+vector 5 Finalnwk.truck[1].tcpApp[0] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, vector(packetBytes)"
+vector 6 Finalnwk.truck[1].tcpApp[0] endToEndDelay:vector ETV
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "end-to-end delay, vector"
+attr unit s
+vector 7 Finalnwk.truck[1].tcpApp[0] numActiveSessions:vector ETV
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, vector"
+vector 8 Finalnwk.truck[1].tcpApp[0] sentPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, vector(packetBytes)"
+vector 9 Finalnwk.UDPserver.eth[0].outputHook[0] "thruput (bit/sec)" ETV
+vector 10 Finalnwk.UDPserver.eth[0].outputHook[0] packet/sec ETV
+vector 11 Finalnwk.FTPserver.eth[0].inputHook[0] "thruput (bit/sec)" ETV
+vector 12 Finalnwk.FTPserver.eth[0].inputHook[0] packet/sec ETV
+vector 13 Finalnwk.FTPserver.eth[0].outputHook[0] "thruput (bit/sec)" ETV
+vector 14 Finalnwk.FTPserver.eth[0].outputHook[0] packet/sec ETV
+vector 15 Finalnwk.UDPserver.eth[0].inputHook[0] "thruput (bit/sec)" ETV
+vector 16 Finalnwk.UDPserver.eth[0].inputHook[0] packet/sec ETV
+vector 17 Finalnwk.HTTPserver.eth[0].inputHook[0] "thruput (bit/sec)" ETV
+vector 18 Finalnwk.HTTPserver.eth[0].inputHook[0] packet/sec ETV
+vector 19 Finalnwk.HTTPserver.eth[0].outputHook[0] "thruput (bit/sec)" ETV
+vector 20 Finalnwk.HTTPserver.eth[0].outputHook[0] packet/sec ETV
+0	6922 9897 1258028 2892741 10 20 501 200 697 222196 109312540
+1	16819 14691 1258928 2881929 10.006143410497 19.964113177739 490 200 699 215902 105320200
+2	31510 3739 1258928 2869675 0.1 19.9 199 0 254720 17161760 3066496076800
+3	35249 20072 1258928 2881929 10.006143410497 19.964113177739 490 0.066130130497 0.105424983467 33.564858703506 2.3210037211631
+4	55321 14691 1258928 2881929 10.006143410497 19.964113177739 490 247 744 243319 130991621
+5	70012 132 1294956 2813062 10.261572301136 19.634595803717 4 400000 400000 1600000 640000000000
+6	70144 164 1294956 2813062 10.261572301136 19.634595803717 4 2.782839845104 3.634679595597 12.397331883481 38.83963033845
+7	70308 227 1294956 2836432 10.261572301136 19.786672036917 8 -1 0 -4 4
+8	70535 120 1323427 2847641 10.465097842013 19.842094575535 4 200 200 800 160000
+9	70655 200 1435190 2892748 10 19 10 172512 202720 1877984 353559590656
+10	70855 170 1435190 2892748 10 19 10 50 50 500 25000
+11	71025 386 1445754 2731101 10.049012791293 18.055822791293 9 7753997.343427 7790347.7591264 69947022.519195 5.4362184810681e+14
+12	71411 385 1445754 2731101 10.049012791293 18.055822791293 9 646.16644528558 649.19564659387 5830.8082484722 3777600.6067526
+13	71796 387 1445758 2731105 10.049012791293 18.055822791293 9 206773.26249139 207742.60691004 1865858.6395111 386826302131.47
+14	72183 385 1445758 2731105 10.049012791293 18.055822791293 9 646.16644528558 649.19564659387 5830.8082484722 3777600.6067526
+15	72568 387 1454961 2750081 10.097296794034 18.179391274034 9 171719.88835221 206909.67020387 1700103.0555757 322102219801.04
+16	72955 385 1454961 2750081 10.097296794034 18.179391274034 9 47.777386047451 54.474210561721 449.34810416672 22464.66709005
+17	73340 386 1462055 2764986 10.164604979304 18.253374907724 9 12315.254405579 83156.336830361 466511.74496573 30464529218.63
+18	73726 385 1462055 2764986 10.164604979304 18.253374907724 9 38.485170017433 254.67027637085 1432.0230149694 286498.97592058
+19	74111 386 1462059 2764990 10.164604979304 18.253374907724 9 455047.97595625 3584662.3973012 19642019.879465 58300075029095
+20	74497 387 1462059 2764990 10.164604979304 18.253374907724 9 37.920664663021 302.63177576473 1656.1946604633 415246.85520716
+

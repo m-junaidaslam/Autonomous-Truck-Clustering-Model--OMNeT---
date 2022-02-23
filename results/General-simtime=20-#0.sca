@@ -1,0 +1,4422 @@
+version 2
+run General-0-20180721-16:27:19-29184
+attr configname General
+attr datetime 20180721-16:27:19
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars $simtime=20
+attr iterationvarsf simtime=20-
+attr measurement $simtime=20
+attr network Finalnwk
+attr processid 29184
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar simtime 20
+param **.numInputHooks 1
+param **.numOutputHooks 1
+param **.inputHook[0].typename "\"ThruputMeter\""
+param **.outputHook[0].typename "\"ThruputMeter\""
+param **.maxInterval 1s
+param **.batchSize 10000
+param **.constraintAreaMinX 0m
+param **.constraintAreaMinY 0m
+param **.constraintAreaMinZ 0m
+param **.constraintAreaMaxX 600m
+param **.constraintAreaMaxY 400m
+param **.constraintAreaMaxZ 0m
+param **.mobilityType "\"StationaryMobility\""
+param **.mobility.initFromDisplayString false
+param **.routerCH.mobility.initialX 158m
+param **.routerCH.mobility.initialY 211m
+param **.routerLab.mobility.initialX 158m
+param **.routerLab.mobility.initialY 77m
+param **.headAP.mobility.initialX 158m
+param **.headAP.mobility.initialY 324m
+param **.headAP.mobility.initialZ 0m
+param **.truck[*].mobility.initialX "249m + uniform(0m, 100m)"
+param **.truck[*].mobility.initialY "369m + uniform(0m, 30m)"
+param **.truck[*].mobility.initialZ 0m
+param **.FTPtruck.mobility.initialX 316m
+param **.FTPtruck.mobility.initialY 325m
+param **.HTTPserver.mobility.initialX 287m
+param **.HTTPserver.mobility.initialY 211m
+param **.FTPserver.mobility.initialX 316m
+param **.FTPserver.mobility.initialY 19m
+param **.UDPserver.mobility.initialX 316m
+param **.UDPserver.mobility.initialY 90m
+param **.SensorCar.mobility.initialX 49m
+param **.SensorCar.mobility.initialY 330m
+param **.truck[*].numTcpApps 1
+param **.truck[*].tcpApp[0].typename "\"TCPBasicClientApp\""
+param **.truck[*].tcpApp[0].requestLength 200B
+param **.truck[*].tcpApp[0].replyLength 400kB
+param **.truck[*].tcpApp[0].localPort -1
+param **.truck[*].tcpApp[0].connectPort 80
+param **.truck[*].tcpApp[0].connectAddress "\"HTTPserver\""
+param **.truck[*].tcpApp[0].numRequestsPerSession 1
+param **.truck[*].tcpApp[0].thinkTime 0s
+param **.truck[*].tcpApp[0].idleInterval 100ms
+param **.HTTPserver.numTcpApps 1
+param **.HTTPserver.tcpApp[0].typename "\"TCPGenericSrvApp\""
+param **.HTTPserver.tcpApp[0].localAddress "\"HTTPserver\""
+param **.HTTPserver.tcpApp[0].localPort 80
+param **.FTPtruck.numTcpApps 1
+param **.FTPtruck.tcpApp[0].typename "\"TCPBasicClientApp\""
+param **.FTPtruck.tcpApp[0].connectAddress "\"FTPserver\""
+param **.FTPtruck.tcpApp[0].localAddress "\"FTPtruck\""
+param **.FTPtruck.tcpApp[0].localPort -1
+param **.FTPtruck.tcpApp[0].connectPort 21
+param **.FTPtruck.tcpApp[0].requestLength 100MB
+param **.FTPtruck.tcpApp[0].replyLength 100B
+param **.FTPtruck.tcpApp[0].thinkTime 0s
+param **.FTPtruck.tcpApp[0].idleInterval 0s
+param **.FTPserver.numTcpApps 1
+param **.FTPserver.tcpApp[0].typename "\"TCPSinkApp\""
+param **.FTPserver.tcpApp[0].localAddress "\"FTPserver\""
+param **.FTPserver.tcpApp[0].localPort 21
+param **.SensorCar.numUdpApps 1
+param **.SensorCar.udpApp[0].typename "\"UDPHookedApp\""
+param **.SensorCar.udpApp[0].localAddress "\"SensorCar\""
+param **.SensorCar.udpApp[0].localPort 1001
+param **.SensorCar.udpApp[0].destPort 1000
+param **.SensorCar.udpApp[0].destAddresses "\"UDPserver\""
+param **.SensorCar.udpApp[0].startTime 5s
+param **.SensorCar.udpApp[0].messageLength uniform(200B,700B)
+param **.SensorCar.udpApp[0].sendInterval 20ms
+param **.UDPserver.numUdpApps 1
+param **.UDPserver.udpApp[0].typename "\"UDPHookedApp\""
+param **.UDPserver.udpApp[0].localAddress "\"UDPserver\""
+param **.UDPserver.udpApp[0].localPort 1000
+param **.UDPserver.udpApp[0].destPort 1001
+param **.UDPserver.udpApp[0].destAddresses "\"SensorCar\""
+param **.UDPserver.udpApp[0].startTime 5s
+param **.UDPserver.udpApp[0].messageLength uniform(200B,700B)
+param **.UDPserver.udpApp[0].sendInterval 20ms
+param **.tcpType "\"TCP\""
+param **.tcp.tcpAlgorithmClass "\"TCPNewReno\""
+param **.tcp.windowScalingSupport true
+param **.tcpApp[*].dataTransferMode "\"object\""
+param **.tcp.mss 1460
+param **.tcp.advertisedWindow 1460000
+param **.networkConfiguratorModule "\"configurator\""
+param **.queueType "\"DropTailQueue\""
+param **.queue.frameCapacity 100
+param **.receiver.sensitivity -110dBm
+param **.mac.address "\"auto\""
+param **.mac.maxQueueSize 50
+param **.mac.rtsThresholdBytes 3000B
+param **.wlan[*].mac.retryLimit 7
+param **.wlan[*].mac.cwMinData 7
+param **.opMode "\"g(mixed)\""
+param **.wlan[*].bitrate 54Mbps
+param **.pathLoss.alpha 2
+
+scalar Finalnwk.radioMedium.propagation "Arrival computation count" 361596
+scalar Finalnwk.radioMedium "transmission count" 90399
+scalar Finalnwk.radioMedium "radio frame send count" 361596
+scalar Finalnwk.radioMedium "reception computation count" 361596
+scalar Finalnwk.radioMedium "interference computation count" 1173326
+scalar Finalnwk.radioMedium "reception decision computation count" 360537
+scalar Finalnwk.radioMedium "listening decision computation count" 451619
+scalar Finalnwk.radioMedium "reception cache hit" 85.698838571482
+attr unit %
+scalar Finalnwk.radioMedium "interference cache hit" 66.666666666667
+attr unit %
+scalar Finalnwk.radioMedium "noise cache hit" 0
+attr unit %
+scalar Finalnwk.radioMedium "snir cache hit" 50
+attr unit %
+scalar Finalnwk.radioMedium "reception decision cache hit" 50
+attr unit %
+scalar Finalnwk.radioMedium "reception result cache hit" 0
+attr unit %
+scalar Finalnwk.truck[0].networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.truck[0].networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.truck[0].networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.truck[0].networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.truck[0].networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.truck[0].lo0.outputHook[0] duration 20
+scalar Finalnwk.truck[0].lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.truck[0].lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.truck[0].lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.truck[0].lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.truck[0].lo0.inputHook[0] duration 20
+scalar Finalnwk.truck[0].lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.truck[0].lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.truck[0].lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.truck[0].lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.truck[0].lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.truck[0].lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.truck[0].lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.truck[0].lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.truck[0].lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.truck[0].lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.truck[0].wlan[0].agent dropConfirm:count 0
+attr title "dropped confirms, count"
+scalar Finalnwk.truck[0].wlan[0].agent acceptConfirm:count 0
+attr title "accepted confirms, count"
+scalar Finalnwk.truck[0].wlan[0].agent sentRequest:count 0
+attr title "sent requests, count"
+scalar Finalnwk.truck[0].wlan[0].mac.dcf queueLength80211:max 6
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, max"
+scalar Finalnwk.truck[0].wlan[0].mac.dcf queueLength80211:timeavg 0.062109461574969
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, timeavg"
+scalar Finalnwk.truck[0].wlan[0].mac.dcf dropPk80211queue:count 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, count"
+scalar Finalnwk.truck[0].wlan[0].mac.dcf dropPk80211queue:sum(packetBytes) 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, sum(packetBytes)"
+scalar Finalnwk.truck[0].wlan[0].mac rcvdPkFromLL:count 48243
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar Finalnwk.truck[0].wlan[0].mac rcvdPkFromLL:sum(packetBytes) 14158829
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar Finalnwk.truck[0].wlan[0].mac sentDownPk:count 2412
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar Finalnwk.truck[0].wlan[0].mac sentDownPk:sum(packetBytes) 85852
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar Finalnwk.truck[0].wlan[0].mac rcvdPkFromHL:count 801
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.truck[0].wlan[0].mac rcvdPkFromHL:sum(packetBytes) 61500
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.truck[0].wlan[0].mac passedUpPk:count 897
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.truck[0].wlan[0].mac passedUpPk:sum(packetBytes) 1212904
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+statistic Finalnwk.truck[0].wlan[0].radio radioChannel:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.truck[0].wlan[0].radio transmissionState:count 9648
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Finalnwk.truck[0].wlan[0].radio receptionState:count 101405
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Finalnwk.truck[0].wlan[0].radio radioMode:count 4824
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic Finalnwk.truck[0].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.truck[0].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.truck[0].wlan[0].radio packetErrorRate:histogram
+field count 48243
+field mean 0.00092501745114981
+field stddev 0.029891923298294
+field min 0
+field max 1
+field sum 44.62561689582
+field sqrsum 43.146812793999
+attr source packetErrorRate
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	48182
+bin	0.033333333333333	0
+bin	0.066666666666667	18
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	43
+statistic Finalnwk.truck[0].wlan[0].radio minSNIR:histogram
+field count 48243
+field mean 324806.65646182
+field stddev 1292921.508547
+field min 0.17600566155557
+field max 5822438.625118
+field sum 15669647527.688
+field sqrsum 8.5733153468649e+16
+attr source minSNIR
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	-2907139.4163388	0
+bin	-2519158.1700519	0
+bin	-2131176.9237649	0
+bin	-1743195.6774779	0
+bin	-1355214.431191	0
+bin	-967233.18490398	0
+bin	-579251.93861701	0
+bin	-191270.69233004	45715
+bin	196710.55395693	0
+bin	584691.8002439	0
+bin	972673.04653087	0
+bin	1360654.2928178	0
+bin	1748635.5391048	0
+bin	2136616.7853918	0
+bin	2524598.0316788	0
+bin	2912579.2779657	0
+bin	3300560.5242527	0
+bin	3688541.7705397	0
+bin	4076523.0168266	0
+bin	4464504.2631136	0
+bin	4852485.5094006	0
+bin	5240466.7556875	0
+bin	5628448.0019745	2528
+bin	6016429.2482615	0
+bin	6404410.4945485	0
+bin	6792391.7408354	0
+bin	7180372.9871224	0
+bin	7568354.2334094	0
+bin	7956335.4796963	0
+bin	8344316.7259833	0
+bin	8732297.9722703	0
+scalar Finalnwk.truck[0].tcpApp[0] numActiveSessions:max 0
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, max"
+scalar Finalnwk.truck[0].tcpApp[0] numActiveSessions:timeavg -0.058597855477168
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, timeavg"
+scalar Finalnwk.truck[0].tcpApp[0] numSessions:last 3
+attr source sum(connect+1)/2
+attr title "total number of sessions, last"
+scalar Finalnwk.truck[0].tcpApp[0] rcvdPk:count 3
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.truck[0].tcpApp[0] rcvdPk:sum(packetBytes) 1200000
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+statistic Finalnwk.truck[0].tcpApp[0] endToEndDelay:histogram
+field count 3
+field mean 3.3307628207673
+field stddev 0.30555735860006
+field min 3.04006312002
+field max 3.649276069074
+field sum 9.992288462302
+field sqrsum 33.468673503407
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	2.735456645493	0
+bin	2.7760708420966	0
+bin	2.8166850387002	0
+bin	2.8572992353038	0
+bin	2.8979134319074	0
+bin	2.938527628511	0
+bin	2.9791418251146	0
+bin	3.0197560217182	1
+bin	3.0603702183218	0
+bin	3.1009844149254	0
+bin	3.141598611529	0
+bin	3.1822128081326	0
+bin	3.2228270047362	0
+bin	3.2634412013398	1
+bin	3.3040553979434	0
+bin	3.344669594547	0
+bin	3.3852837911506	0
+bin	3.4258979877542	0
+bin	3.4665121843578	0
+bin	3.5071263809614	0
+bin	3.547740577565	0
+bin	3.5883547741686	0
+bin	3.6289689707722	1
+bin	3.6695831673758	0
+bin	3.7101973639794	0
+bin	3.750811560583	0
+bin	3.7914257571866	0
+bin	3.8320399537902	0
+bin	3.8726541503938	0
+bin	3.9132683469974	0
+bin	3.953882543601	0
+scalar Finalnwk.truck[0].tcpApp[0] sentPk:count 3
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.truck[0].tcpApp[0] sentPk:sum(packetBytes) 600
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+scalar Finalnwk.truck[1].networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.truck[1].networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.truck[1].networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.truck[1].networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.truck[1].networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.truck[1].lo0.outputHook[0] duration 20
+scalar Finalnwk.truck[1].lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.truck[1].lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.truck[1].lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.truck[1].lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.truck[1].lo0.inputHook[0] duration 20
+scalar Finalnwk.truck[1].lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.truck[1].lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.truck[1].lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.truck[1].lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.truck[1].lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.truck[1].lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.truck[1].lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.truck[1].lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.truck[1].lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.truck[1].lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.truck[1].wlan[0].agent dropConfirm:count 0
+attr title "dropped confirms, count"
+scalar Finalnwk.truck[1].wlan[0].agent acceptConfirm:count 0
+attr title "accepted confirms, count"
+scalar Finalnwk.truck[1].wlan[0].agent sentRequest:count 0
+attr title "sent requests, count"
+scalar Finalnwk.truck[1].wlan[0].mac.dcf queueLength80211:max 7
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, max"
+scalar Finalnwk.truck[1].wlan[0].mac.dcf queueLength80211:timeavg 0.056676991061784
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, timeavg"
+scalar Finalnwk.truck[1].wlan[0].mac.dcf dropPk80211queue:count 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, count"
+scalar Finalnwk.truck[1].wlan[0].mac.dcf dropPk80211queue:sum(packetBytes) 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, sum(packetBytes)"
+scalar Finalnwk.truck[1].wlan[0].mac rcvdPkFromLL:count 48084
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar Finalnwk.truck[1].wlan[0].mac rcvdPkFromLL:sum(packetBytes) 14152303
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar Finalnwk.truck[1].wlan[0].mac sentDownPk:count 2571
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar Finalnwk.truck[1].wlan[0].mac sentDownPk:sum(packetBytes) 92386
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar Finalnwk.truck[1].wlan[0].mac rcvdPkFromHL:count 851
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.truck[1].wlan[0].mac rcvdPkFromHL:sum(packetBytes) 65508
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.truck[1].wlan[0].mac passedUpPk:count 946
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.truck[1].wlan[0].mac passedUpPk:sum(packetBytes) 1282296
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+statistic Finalnwk.truck[1].wlan[0].radio radioChannel:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.truck[1].wlan[0].radio transmissionState:count 10284
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Finalnwk.truck[1].wlan[0].radio receptionState:count 101404
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Finalnwk.truck[1].wlan[0].radio radioMode:count 5142
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic Finalnwk.truck[1].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.truck[1].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.truck[1].wlan[0].radio packetErrorRate:histogram
+field count 48084
+field mean 0.00093422014877
+field stddev 0.030260234291817
+field min 0
+field max 1
+field sum 44.921041633457
+field sqrsum 44.07069314088
+attr source packetErrorRate
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	48028
+bin	0.033333333333333	0
+bin	0.066666666666667	12
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	44
+statistic Finalnwk.truck[1].wlan[0].radio minSNIR:histogram
+field count 48084
+field mean 308238.59445609
+field stddev 1258992.0278892
+field min 0.0012862570167246
+field max 5822438.625118
+field sum 14821344575.827
+field sqrsum 8.0782994938732e+16
+attr source minSNIR
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	-15404.015119573	0
+bin	-12971.591584111	0
+bin	-10539.168048649	0
+bin	-8106.7445131875	0
+bin	-5674.3209777257	0
+bin	-3241.8974422639	0
+bin	-809.47390680209	67
+bin	1622.9496286597	994
+bin	4055.3731641215	0
+bin	6487.7966995833	25319
+bin	8920.2202350451	0
+bin	11352.643770507	0
+bin	13785.067305969	0
+bin	16217.490841431	0
+bin	18649.914376892	0
+bin	21082.337912354	0
+bin	23514.761447816	0
+bin	25947.184983278	0
+bin	28379.60851874	0
+bin	30812.032054201	0
+bin	33244.455589663	0
+bin	35676.879125125	0
+bin	38109.302660587	19322
+bin	40541.726196048	0
+bin	42974.14973151	0
+bin	45406.573266972	0
+bin	47838.996802434	0
+bin	50271.420337896	0
+bin	52703.843873357	0
+bin	55136.267408819	0
+bin	57568.690944281	2382
+scalar Finalnwk.truck[1].tcpApp[0] numActiveSessions:max 0
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, max"
+scalar Finalnwk.truck[1].tcpApp[0] numActiveSessions:timeavg -0.062486980706443
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, timeavg"
+scalar Finalnwk.truck[1].tcpApp[0] numSessions:last 4
+attr source sum(connect+1)/2
+attr title "total number of sessions, last"
+scalar Finalnwk.truck[1].tcpApp[0] rcvdPk:count 4
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.truck[1].tcpApp[0] rcvdPk:sum(packetBytes) 1600000
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+statistic Finalnwk.truck[1].tcpApp[0] endToEndDelay:histogram
+field count 4
+field mean 3.0993329708703
+field stddev 0.37245620823413
+field min 2.782839845104
+field max 3.634679595597
+field sum 12.397331883481
+field sqrsum 38.83963033845
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	2.3569199698575	0
+bin	2.413709286557	0
+bin	2.4704986032566	0
+bin	2.5272879199561	0
+bin	2.5840772366556	0
+bin	2.6408665533552	0
+bin	2.6976558700547	0
+bin	2.7544451867542	1
+bin	2.8112345034538	0
+bin	2.8680238201533	0
+bin	2.9248131368528	1
+bin	2.9816024535524	0
+bin	3.0383917702519	1
+bin	3.0951810869514	0
+bin	3.151970403651	0
+bin	3.2087597203505	0
+bin	3.26554903705	0
+bin	3.3223383537496	0
+bin	3.3791276704491	0
+bin	3.4359169871486	0
+bin	3.4927063038482	0
+bin	3.5494956205477	0
+bin	3.6062849372472	1
+bin	3.6630742539468	0
+bin	3.7198635706463	0
+bin	3.7766528873458	0
+bin	3.8334422040454	0
+bin	3.8902315207449	0
+bin	3.9470208374444	0
+bin	4.003810154144	0
+bin	4.0605994708435	0
+scalar Finalnwk.truck[1].tcpApp[0] sentPk:count 4
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.truck[1].tcpApp[0] sentPk:sum(packetBytes) 800
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.FTPtruck.networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.FTPtruck.networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.FTPtruck.networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.FTPtruck.networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.FTPtruck.lo0.outputHook[0] duration 20
+scalar Finalnwk.FTPtruck.lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.FTPtruck.lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.FTPtruck.lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.FTPtruck.lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.FTPtruck.lo0.inputHook[0] duration 20
+scalar Finalnwk.FTPtruck.lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.FTPtruck.lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.FTPtruck.lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.FTPtruck.lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.FTPtruck.lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.FTPtruck.lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.FTPtruck.lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.FTPtruck.lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.wlan[0].agent dropConfirm:count 0
+attr title "dropped confirms, count"
+scalar Finalnwk.FTPtruck.wlan[0].agent acceptConfirm:count 0
+attr title "accepted confirms, count"
+scalar Finalnwk.FTPtruck.wlan[0].agent sentRequest:count 0
+attr title "sent requests, count"
+scalar Finalnwk.FTPtruck.wlan[0].mac.dcf queueLength80211:max 10
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, max"
+scalar Finalnwk.FTPtruck.wlan[0].mac.dcf queueLength80211:timeavg 0.19881114748006
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, timeavg"
+scalar Finalnwk.FTPtruck.wlan[0].mac.dcf dropPk80211queue:count 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, count"
+scalar Finalnwk.FTPtruck.wlan[0].mac.dcf dropPk80211queue:sum(packetBytes) 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.wlan[0].mac rcvdPkFromLL:count 31268
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar Finalnwk.FTPtruck.wlan[0].mac rcvdPkFromLL:sum(packetBytes) 3939600
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.wlan[0].mac sentDownPk:count 19387
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar Finalnwk.FTPtruck.wlan[0].mac sentDownPk:sum(packetBytes) 10356353
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.wlan[0].mac rcvdPkFromHL:count 6471
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.FTPtruck.wlan[0].mac rcvdPkFromHL:sum(packetBytes) 9936621
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.FTPtruck.wlan[0].mac passedUpPk:count 6481
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.FTPtruck.wlan[0].mac passedUpPk:sum(packetBytes) 489784
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+statistic Finalnwk.FTPtruck.wlan[0].radio radioChannel:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.FTPtruck.wlan[0].radio transmissionState:count 77548
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Finalnwk.FTPtruck.wlan[0].radio receptionState:count 101368
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Finalnwk.FTPtruck.wlan[0].radio radioMode:count 38774
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic Finalnwk.FTPtruck.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.FTPtruck.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.FTPtruck.wlan[0].radio packetErrorRate:histogram
+field count 31268
+field mean 0.0015351157733146
+field stddev 0.039151094678227
+field min 0
+field max 1
+field sum 48
+field sqrsum 48
+attr source packetErrorRate
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	31220
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	48
+statistic Finalnwk.FTPtruck.wlan[0].radio minSNIR:histogram
+field count 31268
+field mean 12649.10727559
+field stddev 11663.978404229
+field min 0.19661624487394
+field max 39859.808087377
+field sum 395512286.29314
+field sqrsum 9256702417500.8
+attr source minSNIR
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	-15814.490060241	0
+bin	-13340.076809236	0
+bin	-10865.66355823	0
+bin	-8391.2503072251	0
+bin	-5916.8370562199	0
+bin	-3442.4238052147	0
+bin	-968.01055420947	48
+bin	1506.4026967958	991
+bin	3980.815947801	0
+bin	6455.2291988062	25319
+bin	8929.6424498114	0
+bin	11404.055700817	0
+bin	13878.468951822	0
+bin	16352.882202827	0
+bin	18827.295453832	0
+bin	21301.708704838	0
+bin	23776.121955843	0
+bin	26250.535206848	0
+bin	28724.948457853	0
+bin	31199.361708858	0
+bin	33673.774959864	0
+bin	36148.188210869	0
+bin	38622.601461874	4910
+bin	41097.014712879	0
+bin	43571.427963885	0
+bin	46045.84121489	0
+bin	48520.254465895	0
+bin	50994.6677169	0
+bin	53469.080967905	0
+bin	55943.494218911	0
+bin	58417.907469916	0
+scalar Finalnwk.FTPtruck.tcpApp[0] numActiveSessions:max nan
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, max"
+scalar Finalnwk.FTPtruck.tcpApp[0] numActiveSessions:timeavg nan
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, timeavg"
+scalar Finalnwk.FTPtruck.tcpApp[0] numSessions:last nan
+attr source sum(connect+1)/2
+attr title "total number of sessions, last"
+scalar Finalnwk.FTPtruck.tcpApp[0] rcvdPk:count 0
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.FTPtruck.tcpApp[0] rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+statistic Finalnwk.FTPtruck.tcpApp[0] endToEndDelay:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.FTPtruck.tcpApp[0] sentPk:count 0
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.FTPtruck.tcpApp[0] sentPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+scalar Finalnwk.SensorCar.networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.SensorCar.networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.SensorCar.networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.SensorCar.networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.SensorCar.networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.SensorCar.lo0.outputHook[0] duration 20
+scalar Finalnwk.SensorCar.lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.SensorCar.lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.SensorCar.lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.SensorCar.lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.SensorCar.lo0.inputHook[0] duration 20
+scalar Finalnwk.SensorCar.lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.SensorCar.lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.SensorCar.lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.SensorCar.lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.SensorCar.lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.SensorCar.lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.SensorCar.lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.SensorCar.lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.SensorCar.lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.SensorCar.lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.SensorCar.wlan[0].agent dropConfirm:count 0
+attr title "dropped confirms, count"
+scalar Finalnwk.SensorCar.wlan[0].agent acceptConfirm:count 0
+attr title "accepted confirms, count"
+scalar Finalnwk.SensorCar.wlan[0].agent sentRequest:count 0
+attr title "sent requests, count"
+scalar Finalnwk.SensorCar.wlan[0].mac.dcf queueLength80211:max 1
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, max"
+scalar Finalnwk.SensorCar.wlan[0].mac.dcf queueLength80211:timeavg 0.0123427757258
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, timeavg"
+scalar Finalnwk.SensorCar.wlan[0].mac.dcf dropPk80211queue:count 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, count"
+scalar Finalnwk.SensorCar.wlan[0].mac.dcf dropPk80211queue:sum(packetBytes) 0
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, sum(packetBytes)"
+scalar Finalnwk.SensorCar.wlan[0].mac rcvdPkFromLL:count 49645
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar Finalnwk.SensorCar.wlan[0].mac rcvdPkFromLL:sum(packetBytes) 13998235
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar Finalnwk.SensorCar.wlan[0].mac sentDownPk:count 1010
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar Finalnwk.SensorCar.wlan[0].mac sentDownPk:sum(packetBytes) 270173
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar Finalnwk.SensorCar.wlan[0].mac rcvdPkFromHL:count 501
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.SensorCar.wlan[0].mac rcvdPkFromHL:sum(packetBytes) 254260
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.SensorCar.wlan[0].mac passedUpPk:count 589
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.SensorCar.wlan[0].mac passedUpPk:sum(packetBytes) 252014
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+statistic Finalnwk.SensorCar.wlan[0].radio radioChannel:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.SensorCar.wlan[0].radio transmissionState:count 4040
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Finalnwk.SensorCar.wlan[0].radio receptionState:count 101385
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Finalnwk.SensorCar.wlan[0].radio radioMode:count 2020
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic Finalnwk.SensorCar.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.SensorCar.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.SensorCar.wlan[0].radio packetErrorRate:histogram
+field count 49645
+field mean 0.0018934434484842
+field stddev 0.043472938577967
+field min 0
+field max 1
+field sum 94
+field sqrsum 94
+attr source packetErrorRate
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	49551
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	94
+statistic Finalnwk.SensorCar.wlan[0].radio minSNIR:histogram
+field count 49645
+field mean 9716.2954000534
+field stddev 6838.6444096563
+field min 1.0083348348081
+field max 16418.373349869
+field sum 482365485.13565
+field sqrsum 7008509340033.4
+attr source minSNIR
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	-4093.7726914868	0
+bin	-3182.1217563155	0
+bin	-2270.4708211441	0
+bin	-1358.8198859727	0
+bin	-447.16895080139	94
+bin	464.48198436997	0
+bin	1376.1329195413	0
+bin	2287.7838547127	24232
+bin	3199.434789884	0
+bin	4111.0857250554	0
+bin	5022.7366602268	0
+bin	5934.3875953981	0
+bin	6846.0385305695	0
+bin	7757.6894657408	0
+bin	8669.3404009122	0
+bin	9580.9913360836	0
+bin	10492.642271255	0
+bin	11404.293206426	0
+bin	12315.944141598	0
+bin	13227.595076769	0
+bin	14139.24601194	0
+bin	15050.896947112	0
+bin	15962.547882283	25319
+bin	16874.198817454	0
+bin	17785.849752626	0
+bin	18697.500687797	0
+bin	19609.151622968	0
+bin	20520.80255814	0
+bin	21432.453493311	0
+bin	22344.104428483	0
+bin	23255.755363654	0
+scalar Finalnwk.SensorCar.udpApp[0] "lost packets (due delay)" 0
+scalar Finalnwk.SensorCar.udpApp[0] "packets avg_delays" nan
+scalar Finalnwk.SensorCar.udpApp[0] "packets sent" 751
+scalar Finalnwk.SensorCar.udpApp[0] "packets received" 733
+scalar Finalnwk.SensorCar.udpApp[0] rcvdPk:count 490
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.SensorCar.udpApp[0] rcvdPk:sum(packetBytes) 215902
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+statistic Finalnwk.SensorCar.udpApp[0] rcvdPkLifetime:stats
+field count 490
+field mean 0.068499711639808
+field stddev 0.0066800344619678
+field min 0.066130130497
+field max 0.105424983467
+field sum 33.564858703506
+field sqrsum 2.3210037211631
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar Finalnwk.SensorCar.udpApp[0] sentPk:count 501
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.SensorCar.udpApp[0] sentPk:sum(packetBytes) 222196
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+scalar Finalnwk.SensorCar.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr title "packets dropped (checksum error), count"
+scalar Finalnwk.SensorCar.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr title "packets dropped (wrong port), count"
+scalar Finalnwk.SensorCar.udp passedUpPk:count 490
+attr interpolationmode none
+attr title "packets passed up, count"
+scalar Finalnwk.SensorCar.udp rcvdPk:count 490
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.SensorCar.udp rcvdPk:sum(packetBytes) 219822
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+scalar Finalnwk.SensorCar.udp sentPk:count 501
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.SensorCar.udp sentPk:sum(packetBytes) 226204
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+scalar Finalnwk.routerCH.networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.routerCH.networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.routerCH.networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.routerCH.networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.routerCH.networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.routerCH.lo0.outputHook[0] duration 20
+scalar Finalnwk.routerCH.lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.routerCH.lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.routerCH.lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.routerCH.lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.routerCH.lo0.inputHook[0] duration 20
+scalar Finalnwk.routerCH.lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.routerCH.lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.routerCH.lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.routerCH.lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.routerCH.lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerCH.lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerCH.lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.routerCH.lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerCH.lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerCH.lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].outputHook[0] duration 20
+scalar Finalnwk.routerCH.eth[0].outputHook[0] "total packets" 15773
+scalar Finalnwk.routerCH.eth[0].outputHook[0] "total bits" 55257536
+scalar Finalnwk.routerCH.eth[0].outputHook[0] "avg throughput (bit/s)" 2762876.8
+scalar Finalnwk.routerCH.eth[0].outputHook[0] "avg packets/s" 788.65
+scalar Finalnwk.routerCH.eth[0].inputHook[0] duration 20
+scalar Finalnwk.routerCH.eth[0].inputHook[0] "total packets" 15346
+scalar Finalnwk.routerCH.eth[0].inputHook[0] "total bits" 136433720
+scalar Finalnwk.routerCH.eth[0].inputHook[0] "avg throughput (bit/s)" 6821686
+scalar Finalnwk.routerCH.eth[0].inputHook[0] "avg packets/s" 767.3
+statistic Finalnwk.routerCH.eth[0].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.routerCH.eth[0].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerCH.eth[0].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerCH.eth[0].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerCH.eth[0].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerCH.eth[0].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.routerCH.eth[0].queue.dataQueue queueingTime:histogram
+field count 8939
+field mean 1.4460446675243e-06
+field stddev 1.0302890966673e-05
+field min 0
+field max 0.000146816979
+field sum 0.012926193283
+field sqrsum 9.674566404479e-07
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-3.2891574e-05	0
+bin	-2.85060308e-05	0
+bin	-2.41204876e-05	0
+bin	-1.97349444e-05	0
+bin	-1.53494012e-05	0
+bin	-1.0963858e-05	0
+bin	-6.5783148e-06	0
+bin	-2.1927716e-06	8589
+bin	2.1927716e-06	30
+bin	6.5783148e-06	131
+bin	1.0963858e-05	19
+bin	1.53494012e-05	7
+bin	1.97349444e-05	3
+bin	2.41204876e-05	8
+bin	2.85060308e-05	6
+bin	3.2891574e-05	8
+bin	3.72771172e-05	7
+bin	4.16626604e-05	8
+bin	4.60482036e-05	10
+bin	5.04337468e-05	9
+bin	5.481929e-05	8
+bin	5.92048332e-05	8
+bin	6.35903764e-05	10
+bin	6.79759196e-05	7
+bin	7.23614628e-05	4
+bin	7.6747006e-05	9
+bin	8.11325492e-05	6
+bin	8.55180924e-05	8
+bin	8.99036356e-05	4
+bin	9.42891788e-05	3
+bin	9.8674722e-05	37
+scalar Finalnwk.routerCH.eth[0].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerCH.eth[0].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].queue.dataQueue queueLength:max 2
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerCH.eth[0].queue.dataQueue queueLength:timeavg 0.0012927927630803
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerCH.eth[0].queue.dataQueue rcvdPk:count 8939
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerCH.eth[0].queue.dataQueue rcvdPk:sum(packetBytes) 3592471
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].mac "simulated time" 20
+scalar Finalnwk.routerCH.eth[0].mac full-duplex 1
+scalar Finalnwk.routerCH.eth[0].mac "frames/sec sent" 788.65
+scalar Finalnwk.routerCH.eth[0].mac "frames/sec rcvd" 767.3
+scalar Finalnwk.routerCH.eth[0].mac "bits/sec sent" 2902698.4
+scalar Finalnwk.routerCH.eth[0].mac "bits/sec rcvd" 6940668.4
+scalar Finalnwk.routerCH.eth[0].mac "rx channel idle (%)" 93.0102244
+scalar Finalnwk.routerCH.eth[0].mac "rx channel utilization (%)" 6.9897756
+scalar Finalnwk.routerCH.eth[0].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.routerCH.eth[0].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.routerCH.eth[0].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerCH.eth[0].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].mac rxPkFromHL:count 8939
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.routerCH.eth[0].mac rxPkFromHL:sum(packetBytes) 3592471
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.routerCH.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.routerCH.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.routerCH.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.routerCH.eth[0].mac rxPkOk:count 8621
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.routerCH.eth[0].mac rxPkOk:sum(packetBytes) 10171838
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].mac txPk:count 8939
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.routerCH.eth[0].mac txPk:sum(packetBytes) 3592471
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].mac passedUpPk:count 8621
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerCH.eth[0].mac passedUpPk:sum(packetBytes) 10171838
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar Finalnwk.routerCH.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar Finalnwk.routerCH.eth[0].encap decapPk:count 8621
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar Finalnwk.routerCH.eth[0].encap decapPk:sum(packetBytes) 10006844
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[0].encap encapPk:count 8939
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar Finalnwk.routerCH.eth[0].encap encapPk:sum(packetBytes) 3392569
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].outputHook[0] duration 20
+scalar Finalnwk.routerCH.eth[1].outputHook[0] "total packets" 3554
+scalar Finalnwk.routerCH.eth[1].outputHook[0] "total bits" 1160480
+scalar Finalnwk.routerCH.eth[1].outputHook[0] "avg throughput (bit/s)" 58024
+scalar Finalnwk.routerCH.eth[1].outputHook[0] "avg packets/s" 177.7
+scalar Finalnwk.routerCH.eth[1].inputHook[0] duration 20
+scalar Finalnwk.routerCH.eth[1].inputHook[0] "total packets" 4132
+scalar Finalnwk.routerCH.eth[1].inputHook[0] "total bits" 48938240
+scalar Finalnwk.routerCH.eth[1].inputHook[0] "avg throughput (bit/s)" 2446912
+scalar Finalnwk.routerCH.eth[1].inputHook[0] "avg packets/s" 206.6
+statistic Finalnwk.routerCH.eth[1].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.routerCH.eth[1].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerCH.eth[1].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerCH.eth[1].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerCH.eth[1].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerCH.eth[1].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.routerCH.eth[1].queue.dataQueue queueingTime:histogram
+field count 1650
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	1650
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.routerCH.eth[1].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerCH.eth[1].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].queue.dataQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerCH.eth[1].queue.dataQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerCH.eth[1].queue.dataQueue rcvdPk:count 1650
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerCH.eth[1].queue.dataQueue rcvdPk:sum(packetBytes) 106972
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].mac "simulated time" 20
+scalar Finalnwk.routerCH.eth[1].mac full-duplex 1
+scalar Finalnwk.routerCH.eth[1].mac "frames/sec sent" 177.7
+scalar Finalnwk.routerCH.eth[1].mac "frames/sec rcvd" 206.6
+scalar Finalnwk.routerCH.eth[1].mac "bits/sec sent" 92080
+scalar Finalnwk.routerCH.eth[1].mac "bits/sec rcvd" 2476760.8
+scalar Finalnwk.routerCH.eth[1].mac "rx channel idle (%)" 97.5100168
+scalar Finalnwk.routerCH.eth[1].mac "rx channel utilization (%)" 2.4899832
+scalar Finalnwk.routerCH.eth[1].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.routerCH.eth[1].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.routerCH.eth[1].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerCH.eth[1].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].mac rxPkFromHL:count 1650
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.routerCH.eth[1].mac rxPkFromHL:sum(packetBytes) 106972
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.routerCH.eth[1].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.routerCH.eth[1].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.routerCH.eth[1].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.routerCH.eth[1].mac rxPkOk:count 1960
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.routerCH.eth[1].mac rxPkOk:sum(packetBytes) 2934342
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].mac txPk:count 1650
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.routerCH.eth[1].mac txPk:sum(packetBytes) 106972
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].mac passedUpPk:count 1960
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerCH.eth[1].mac passedUpPk:sum(packetBytes) 2934342
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar Finalnwk.routerCH.eth[1].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar Finalnwk.routerCH.eth[1].encap decapPk:count 1960
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar Finalnwk.routerCH.eth[1].encap decapPk:sum(packetBytes) 2898936
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar Finalnwk.routerCH.eth[1].encap encapPk:count 1650
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar Finalnwk.routerCH.eth[1].encap encapPk:sum(packetBytes) 67456
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].outputHook[0] duration 20
+scalar Finalnwk.routerCH.ppp[0].outputHook[0] "total packets" 11789
+scalar Finalnwk.routerCH.ppp[0].outputHook[0] "total bits" 135272568
+scalar Finalnwk.routerCH.ppp[0].outputHook[0] "avg throughput (bit/s)" 6763628.4
+scalar Finalnwk.routerCH.ppp[0].outputHook[0] "avg packets/s" 589.45
+scalar Finalnwk.routerCH.ppp[0].inputHook[0] duration 20
+scalar Finalnwk.routerCH.ppp[0].inputHook[0] "total packets" 11638
+scalar Finalnwk.routerCH.ppp[0].inputHook[0] "total bits" 6318624
+scalar Finalnwk.routerCH.ppp[0].inputHook[0] "avg throughput (bit/s)" 315931.2
+scalar Finalnwk.routerCH.ppp[0].inputHook[0] "avg packets/s" 581.9
+statistic Finalnwk.routerCH.ppp[0].queue queueingTime:histogram
+field count 6979
+field mean 0.099791619035023
+field stddev 0.024693639273258
+field min 0.019723996053
+field max 0.142912211832
+field sum 696.44570924543
+field sqrsum 73.754460571448
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	1689
+bin	0.085634135967	28
+bin	0.085866012749	14
+bin	0.086097889531	9
+bin	0.086329766313	17
+bin	0.086561643095	19
+bin	0.086793519877	32
+bin	0.087025396659	23
+bin	0.087257273441	15
+bin	0.087489150223	19
+bin	0.087721027005	34
+bin	0.087952903787	44
+bin	0.088184780569	34
+bin	0.088416657351	6
+bin	0.088648534133	9
+bin	0.088880410915	6
+bin	0.089112287697	27
+bin	0.089344164479	37
+bin	0.089576041261	50
+bin	0.089807918043	45
+bin	0.090039794825	10
+bin	0.090271671607	5
+bin	0.090503548389	7
+bin	0.090735425171	37
+bin	0.090967301953	56
+bin	0.091199178735	50
+bin	0.091431055517	33
+bin	0.091662932299	11
+bin	0.091894809081	7
+bin	0.092126685863	12
+bin	0.092358562645	40
+bin	0.092590439427	4554
+scalar Finalnwk.routerCH.ppp[0].queue dropPk:count 1
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerCH.ppp[0].queue dropPk:sum(packetBytes) 1500
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].queue queueLength:max 100
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerCH.ppp[0].queue queueLength:timeavg 69.652616866212
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerCH.ppp[0].queue rcvdPk:count 6971
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerCH.ppp[0].queue rcvdPk:sum(packetBytes) 9939388
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].ppp txState:timeavg 1.0000000000001
+attr interpolationmode sample-hold
+attr title "tx state, timeavg"
+scalar Finalnwk.routerCH.ppp[0].ppp droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.routerCH.ppp[0].ppp droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].ppp droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerCH.ppp[0].ppp droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].ppp rxPkOk:count 6979
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.routerCH.ppp[0].ppp rxPkOk:sum(packetBytes) 542486
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].ppp txPk:count 6979
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar Finalnwk.routerCH.ppp[0].ppp txPk:sum(packetBytes) 10000945
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].ppp rcvdPkFromHL:count 6979
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.routerCH.ppp[0].ppp rcvdPkFromHL:sum(packetBytes) 9952092
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerCH.ppp[0].ppp passedUpPk:count 6979
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerCH.ppp[0].ppp passedUpPk:sum(packetBytes) 493633
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.routerLab.networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.routerLab.networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.routerLab.networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.routerLab.networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.routerLab.lo0.outputHook[0] duration 20
+scalar Finalnwk.routerLab.lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.routerLab.lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.routerLab.lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.routerLab.lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.routerLab.lo0.inputHook[0] duration 20
+scalar Finalnwk.routerLab.lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.routerLab.lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.routerLab.lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.routerLab.lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.routerLab.lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerLab.lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerLab.lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.routerLab.lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerLab.lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].outputHook[0] duration 20
+scalar Finalnwk.routerLab.eth[0].outputHook[0] "total packets" 10906
+scalar Finalnwk.routerLab.eth[0].outputHook[0] "total bits" 130814248
+scalar Finalnwk.routerLab.eth[0].outputHook[0] "avg throughput (bit/s)" 6540712.4
+scalar Finalnwk.routerLab.eth[0].outputHook[0] "avg packets/s" 545.3
+scalar Finalnwk.routerLab.eth[0].inputHook[0] duration 20
+scalar Finalnwk.routerLab.eth[0].inputHook[0] "total packets" 10899
+scalar Finalnwk.routerLab.eth[0].inputHook[0] "total bits" 3487648
+scalar Finalnwk.routerLab.eth[0].inputHook[0] "avg throughput (bit/s)" 174382.4
+scalar Finalnwk.routerLab.eth[0].inputHook[0] "avg packets/s" 544.95
+statistic Finalnwk.routerLab.eth[0].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.routerLab.eth[0].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerLab.eth[0].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerLab.eth[0].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerLab.eth[0].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerLab.eth[0].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.routerLab.eth[0].queue.dataQueue queueingTime:histogram
+field count 6479
+field mean 3.2474147244945e-09
+field stddev 2.613916712586e-07
+field min 0
+field max 2.104e-05
+field sum 2.104e-05
+field sqrsum 4.426816e-10
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	6479
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.routerLab.eth[0].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerLab.eth[0].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].queue.dataQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerLab.eth[0].queue.dataQueue queueLength:timeavg 2.1042120438239e-06
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerLab.eth[0].queue.dataQueue rcvdPk:count 6479
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerLab.eth[0].queue.dataQueue rcvdPk:sum(packetBytes) 9832287
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].mac "simulated time" 20
+scalar Finalnwk.routerLab.eth[0].mac full-duplex 1
+scalar Finalnwk.routerLab.eth[0].mac "frames/sec sent" 545.3
+scalar Finalnwk.routerLab.eth[0].mac "frames/sec rcvd" 544.95
+scalar Finalnwk.routerLab.eth[0].mac "bits/sec sent" 6619245.2
+scalar Finalnwk.routerLab.eth[0].mac "bits/sec rcvd" 279015.2
+scalar Finalnwk.routerLab.eth[0].mac "rx channel idle (%)" 99.686108
+scalar Finalnwk.routerLab.eth[0].mac "rx channel utilization (%)" 0.313892
+scalar Finalnwk.routerLab.eth[0].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.routerLab.eth[0].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.routerLab.eth[0].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerLab.eth[0].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].mac rxPkFromHL:count 6479
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.routerLab.eth[0].mac rxPkFromHL:sum(packetBytes) 9832287
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.routerLab.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.routerLab.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.routerLab.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.routerLab.eth[0].mac rxPkOk:count 6480
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.routerLab.eth[0].mac rxPkOk:sum(packetBytes) 414720
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].mac txPk:count 6479
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.routerLab.eth[0].mac txPk:sum(packetBytes) 9832287
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].mac passedUpPk:count 6480
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerLab.eth[0].mac passedUpPk:sum(packetBytes) 414720
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar Finalnwk.routerLab.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar Finalnwk.routerLab.eth[0].encap decapPk:count 6480
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar Finalnwk.routerLab.eth[0].encap decapPk:sum(packetBytes) 259200
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[0].encap encapPk:count 6479
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar Finalnwk.routerLab.eth[0].encap encapPk:sum(packetBytes) 9715665
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].outputHook[0] duration 20
+scalar Finalnwk.routerLab.eth[1].outputHook[0] "total packets" 746
+scalar Finalnwk.routerLab.eth[1].outputHook[0] "total bits" 2827192
+scalar Finalnwk.routerLab.eth[1].outputHook[0] "avg throughput (bit/s)" 141359.6
+scalar Finalnwk.routerLab.eth[1].outputHook[0] "avg packets/s" 37.3
+scalar Finalnwk.routerLab.eth[1].inputHook[0] duration 20
+scalar Finalnwk.routerLab.eth[1].inputHook[0] "total packets" 750
+scalar Finalnwk.routerLab.eth[1].inputHook[0] "total bits" 2837688
+scalar Finalnwk.routerLab.eth[1].inputHook[0] "avg throughput (bit/s)" 141884.4
+scalar Finalnwk.routerLab.eth[1].inputHook[0] "avg packets/s" 37.5
+statistic Finalnwk.routerLab.eth[1].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.routerLab.eth[1].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerLab.eth[1].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerLab.eth[1].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerLab.eth[1].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerLab.eth[1].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.routerLab.eth[1].queue.dataQueue queueingTime:histogram
+field count 498
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	498
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.routerLab.eth[1].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerLab.eth[1].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].queue.dataQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerLab.eth[1].queue.dataQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerLab.eth[1].queue.dataQueue rcvdPk:count 498
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerLab.eth[1].queue.dataQueue rcvdPk:sum(packetBytes) 243633
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].mac "simulated time" 20
+scalar Finalnwk.routerLab.eth[1].mac full-duplex 1
+scalar Finalnwk.routerLab.eth[1].mac "frames/sec sent" 37.3
+scalar Finalnwk.routerLab.eth[1].mac "frames/sec rcvd" 37.5
+scalar Finalnwk.routerLab.eth[1].mac "bits/sec sent" 146745.2
+scalar Finalnwk.routerLab.eth[1].mac "bits/sec rcvd" 147298.8
+scalar Finalnwk.routerLab.eth[1].mac "rx channel idle (%)" 99.8503012
+scalar Finalnwk.routerLab.eth[1].mac "rx channel utilization (%)" 0.1496988
+scalar Finalnwk.routerLab.eth[1].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.routerLab.eth[1].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.routerLab.eth[1].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerLab.eth[1].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].mac rxPkFromHL:count 498
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.routerLab.eth[1].mac rxPkFromHL:sum(packetBytes) 243633
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.routerLab.eth[1].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.routerLab.eth[1].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.routerLab.eth[1].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.routerLab.eth[1].mac rxPkOk:count 500
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.routerLab.eth[1].mac rxPkOk:sum(packetBytes) 243712
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].mac txPk:count 498
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.routerLab.eth[1].mac txPk:sum(packetBytes) 243633
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].mac passedUpPk:count 500
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerLab.eth[1].mac passedUpPk:sum(packetBytes) 243712
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar Finalnwk.routerLab.eth[1].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar Finalnwk.routerLab.eth[1].encap decapPk:count 500
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar Finalnwk.routerLab.eth[1].encap decapPk:sum(packetBytes) 234712
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar Finalnwk.routerLab.eth[1].encap encapPk:count 498
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar Finalnwk.routerLab.eth[1].encap encapPk:sum(packetBytes) 234669
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].outputHook[0] duration 20
+scalar Finalnwk.routerLab.ppp[0].outputHook[0] "total packets" 11646
+scalar Finalnwk.routerLab.ppp[0].outputHook[0] "total bits" 6324664
+scalar Finalnwk.routerLab.ppp[0].outputHook[0] "avg throughput (bit/s)" 316233.2
+scalar Finalnwk.routerLab.ppp[0].outputHook[0] "avg packets/s" 582.3
+scalar Finalnwk.routerLab.ppp[0].inputHook[0] duration 20
+scalar Finalnwk.routerLab.ppp[0].inputHook[0] "total packets" 11649
+scalar Finalnwk.routerLab.ppp[0].inputHook[0] "total bits" 133640768
+scalar Finalnwk.routerLab.ppp[0].inputHook[0] "avg throughput (bit/s)" 6682038.4
+scalar Finalnwk.routerLab.ppp[0].inputHook[0] "avg packets/s" 582.45
+statistic Finalnwk.routerLab.ppp[0].queue queueingTime:histogram
+field count 6980
+field mean 6.1638130577364e-06
+field stddev 4.6130580209038e-05
+field min 0
+field max 0.000659015069
+field sum 0.043023415143
+field sqrsum 1.5116712661965e-05
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.0002127275345	0
+bin	-0.00018436386323333	0
+bin	-0.00015600019196667	0
+bin	-0.0001276365207	0
+bin	-9.9272849433333e-05	0
+bin	-7.0909178166667e-05	0
+bin	-4.25455069e-05	0
+bin	-1.4181835633333e-05	6805
+bin	1.4181835633333e-05	21
+bin	4.25455069e-05	8
+bin	7.0909178166667e-05	10
+bin	9.9272849433333e-05	11
+bin	0.0001276365207	10
+bin	0.00015600019196667	11
+bin	0.00018436386323333	9
+bin	0.0002127275345	12
+bin	0.00024109120576667	9
+bin	0.00026945487703333	12
+bin	0.0002978185483	10
+bin	0.00032618221956667	7
+bin	0.00035454589083333	3
+bin	0.0003829095621	14
+bin	0.00041127323336667	7
+bin	0.00043963690463333	3
+bin	0.0004680005759	4
+bin	0.00049636424716667	3
+bin	0.00052472791843333	3
+bin	0.0005530915897	3
+bin	0.00058145526096667	1
+bin	0.00060981893223333	2
+bin	0.0006381826035	2
+scalar Finalnwk.routerLab.ppp[0].queue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.routerLab.ppp[0].queue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].queue queueLength:max 1
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.routerLab.ppp[0].queue queueLength:timeavg 0.0043440309847408
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.routerLab.ppp[0].queue rcvdPk:count 6980
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.routerLab.ppp[0].queue rcvdPk:sum(packetBytes) 493912
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].ppp txState:timeavg 0.05427902676767
+attr interpolationmode sample-hold
+attr title "tx state, timeavg"
+scalar Finalnwk.routerLab.ppp[0].ppp droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.routerLab.ppp[0].ppp droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].ppp droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.routerLab.ppp[0].ppp droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].ppp rxPkOk:count 6977
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.routerLab.ppp[0].ppp rxPkOk:sum(packetBytes) 9999173
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].ppp txPk:count 6980
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar Finalnwk.routerLab.ppp[0].ppp txPk:sum(packetBytes) 542772
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].ppp rcvdPkFromHL:count 6980
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.routerLab.ppp[0].ppp rcvdPkFromHL:sum(packetBytes) 493912
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.routerLab.ppp[0].ppp passedUpPk:count 6977
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.routerLab.ppp[0].ppp passedUpPk:sum(packetBytes) 9950334
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.headAP.relayUnit "number of received BPDUs from STP module" 0
+scalar Finalnwk.headAP.relayUnit "number of received frames from network (including BPDUs)" 31119
+scalar Finalnwk.headAP.relayUnit "number of dropped frames (including BPDUs)" 0
+scalar Finalnwk.headAP.relayUnit "number of delivered BPDUs to the STP module" 0
+scalar Finalnwk.headAP.relayUnit "number of dispatched BPDU frames to the network" 0
+scalar Finalnwk.headAP.relayUnit "number of dispatched non-BDPU frames to the network" 31119
+scalar Finalnwk.headAP.wlan[0].mac.dcf queueLength80211:max 50
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, max"
+scalar Finalnwk.headAP.wlan[0].mac.dcf queueLength80211:timeavg 3.8920961461796
+attr interpolationmode sample-hold
+attr source pendingQueueLength
+attr title "pending queue size, timeavg"
+scalar Finalnwk.headAP.wlan[0].mac.dcf dropPk80211queue:count 372
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, count"
+scalar Finalnwk.headAP.wlan[0].mac.dcf dropPk80211queue:sum(packetBytes) 435615
+attr interpolationmode none
+attr source NF_PACKET_DROP
+attr title "pending queue frame dropped, sum(packetBytes)"
+scalar Finalnwk.headAP.wlan[0].mac rcvdPkFromLL:count 25266
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar Finalnwk.headAP.wlan[0].mac rcvdPkFromLL:sum(packetBytes) 10741013
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar Finalnwk.headAP.wlan[0].mac sentDownPk:count 25390
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar Finalnwk.headAP.wlan[0].mac sentDownPk:sum(packetBytes) 3559495
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar Finalnwk.headAP.wlan[0].mac rcvdPkFromHL:count 9039
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.headAP.wlan[0].mac rcvdPkFromHL:sum(packetBytes) 3719173
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.headAP.wlan[0].mac passedUpPk:count 8621
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.headAP.wlan[0].mac passedUpPk:sum(packetBytes) 10317200
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+statistic Finalnwk.headAP.wlan[0].radio radioChannel:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.headAP.wlan[0].radio transmissionState:count 101558
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar Finalnwk.headAP.wlan[0].radio receptionState:count 101364
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Finalnwk.headAP.wlan[0].radio radioMode:count 50779
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+statistic Finalnwk.headAP.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.headAP.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source bitErrorRate
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+statistic Finalnwk.headAP.wlan[0].radio packetErrorRate:histogram
+field count 25266
+field mean 0.0017018918704979
+field stddev 0.041219688033247
+field min 0
+field max 1
+field sum 43
+field sqrsum 43
+attr source packetErrorRate
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	25223
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	43
+statistic Finalnwk.headAP.wlan[0].radio minSNIR:histogram
+field count 25266
+field mean 8048.2339466917
+field stddev 1738.9780094012
+field min 0.45611690913424
+field max 16418.373349869
+field sum 203346678.89711
+field sqrsum 1712984128773.3
+attr source minSNIR
+attr title "Min SNIR, histogram"
+bin	-inf	43
+bin	2314.4051714034	0
+bin	2941.2482015574	0
+bin	3568.0912317114	0
+bin	4194.9342618655	0
+bin	4821.7772920195	0
+bin	5448.6203221735	0
+bin	6075.4633523275	0
+bin	6702.3063824815	2382
+bin	7329.1494126355	21850
+bin	7955.9924427895	0
+bin	8582.8354729436	0
+bin	9209.6785030976	0
+bin	9836.5215332516	0
+bin	10463.364563406	0
+bin	11090.20759356	0
+bin	11717.050623714	0
+bin	12343.893653868	0
+bin	12970.736684022	0
+bin	13597.579714176	0
+bin	14224.42274433	0
+bin	14851.265774484	0
+bin	15478.108804638	0
+bin	16104.951834792	991
+bin	16731.794864946	0
+bin	17358.6378951	0
+bin	17985.480925254	0
+bin	18612.323955408	0
+bin	19239.166985562	0
+bin	19866.010015716	0
+bin	20492.85304587	0
+bin	21119.696076024	0
+scalar Finalnwk.headAP.eth[0].outputHook[0] duration 20
+scalar Finalnwk.headAP.eth[0].outputHook[0] "total packets" 15346
+scalar Finalnwk.headAP.eth[0].outputHook[0] "total bits" 138813368
+scalar Finalnwk.headAP.eth[0].outputHook[0] "avg throughput (bit/s)" 6940668.4
+scalar Finalnwk.headAP.eth[0].outputHook[0] "avg packets/s" 767.3
+scalar Finalnwk.headAP.eth[0].inputHook[0] duration 20
+scalar Finalnwk.headAP.eth[0].inputHook[0] "total packets" 15773
+scalar Finalnwk.headAP.eth[0].inputHook[0] "total bits" 58053968
+scalar Finalnwk.headAP.eth[0].inputHook[0] "avg throughput (bit/s)" 2902698.4
+scalar Finalnwk.headAP.eth[0].inputHook[0] "avg packets/s" 788.65
+statistic Finalnwk.headAP.eth[0].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.headAP.eth[0].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.headAP.eth[0].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.headAP.eth[0].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.headAP.eth[0].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.headAP.eth[0].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.headAP.eth[0].queue.dataQueue queueingTime:histogram
+field count 8621
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	8621
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.headAP.eth[0].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.headAP.eth[0].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].queue.dataQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.headAP.eth[0].queue.dataQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.headAP.eth[0].queue.dataQueue rcvdPk:count 8621
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.headAP.eth[0].queue.dataQueue rcvdPk:sum(packetBytes) 10171838
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].mac "simulated time" 20
+scalar Finalnwk.headAP.eth[0].mac full-duplex 1
+scalar Finalnwk.headAP.eth[0].mac "frames/sec sent" 767.3
+scalar Finalnwk.headAP.eth[0].mac "frames/sec rcvd" 788.65
+scalar Finalnwk.headAP.eth[0].mac "bits/sec sent" 6940668.4
+scalar Finalnwk.headAP.eth[0].mac "bits/sec rcvd" 2902698.4
+scalar Finalnwk.headAP.eth[0].mac "rx channel idle (%)" 97.046828
+scalar Finalnwk.headAP.eth[0].mac "rx channel utilization (%)" 2.953172
+scalar Finalnwk.headAP.eth[0].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.headAP.eth[0].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.headAP.eth[0].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.headAP.eth[0].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].mac rxPkFromHL:count 8621
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.headAP.eth[0].mac rxPkFromHL:sum(packetBytes) 10171838
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.headAP.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.headAP.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.headAP.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.headAP.eth[0].mac rxPkOk:count 8939
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.headAP.eth[0].mac rxPkOk:sum(packetBytes) 3592471
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].mac txPk:count 8621
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.headAP.eth[0].mac txPk:sum(packetBytes) 10171838
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.headAP.eth[0].mac passedUpPk:count 8939
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.headAP.eth[0].mac passedUpPk:sum(packetBytes) 3592471
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.HTTPserver.networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.HTTPserver.networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.HTTPserver.networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.HTTPserver.networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.HTTPserver.lo0.outputHook[0] duration 20
+scalar Finalnwk.HTTPserver.lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.HTTPserver.lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.HTTPserver.lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.HTTPserver.lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.HTTPserver.lo0.inputHook[0] duration 20
+scalar Finalnwk.HTTPserver.lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.HTTPserver.lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.HTTPserver.lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.HTTPserver.lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.HTTPserver.lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.HTTPserver.lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.HTTPserver.lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.HTTPserver.lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].outputHook[0] duration 20
+scalar Finalnwk.HTTPserver.eth[0].outputHook[0] "total packets" 4151
+scalar Finalnwk.HTTPserver.eth[0].outputHook[0] "total bits" 49165920
+scalar Finalnwk.HTTPserver.eth[0].outputHook[0] "avg throughput (bit/s)" 2458296
+scalar Finalnwk.HTTPserver.eth[0].outputHook[0] "avg packets/s" 207.55
+scalar Finalnwk.HTTPserver.eth[0].inputHook[0] duration 20
+scalar Finalnwk.HTTPserver.eth[0].inputHook[0] "total packets" 3523
+scalar Finalnwk.HTTPserver.eth[0].inputHook[0] "total bits" 1150560
+scalar Finalnwk.HTTPserver.eth[0].inputHook[0] "avg throughput (bit/s)" 57528
+scalar Finalnwk.HTTPserver.eth[0].inputHook[0] "avg packets/s" 176.15
+statistic Finalnwk.HTTPserver.eth[0].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.HTTPserver.eth[0].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.HTTPserver.eth[0].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.HTTPserver.eth[0].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.HTTPserver.eth[0].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.HTTPserver.eth[0].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.HTTPserver.eth[0].queue.dataQueue queueingTime:histogram
+field count 1978
+field mean 6.6184329717897e-05
+field stddev 7.6030077201572e-05
+field min 0
+field max 0.00073824
+field sum 0.130912604182
+field sqrsum 2.0092555067261e-05
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.000118020848	0
+bin	-0.00010228473493333	0
+bin	-8.6548621866667e-05	0
+bin	-7.08125088e-05	0
+bin	-5.5076395733333e-05	0
+bin	-3.9340282666667e-05	0
+bin	-2.36041696e-05	0
+bin	-7.8680565333333e-06	1006
+bin	7.8680565333333e-06	6
+bin	2.36041696e-05	6
+bin	3.9340282666667e-05	9
+bin	5.5076395733333e-05	0
+bin	7.08125088e-05	23
+bin	8.6548621866667e-05	28
+bin	0.00010228473493333	51
+bin	0.000118020848	699
+bin	0.00013375696106667	8
+bin	0.00014949307413333	6
+bin	0.0001652291872	10
+bin	0.00018096530026667	24
+bin	0.00019670141333333	3
+bin	0.0002124375264	30
+bin	0.00022817363946667	51
+bin	0.00024390975253333	4
+bin	0.0002596458656	2
+bin	0.00027538197866667	1
+bin	0.00029111809173333	0
+bin	0.0003068542048	1
+bin	0.00032259031786667	3
+bin	0.00033832643093333	3
+bin	0.000354062544	4
+scalar Finalnwk.HTTPserver.eth[0].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.HTTPserver.eth[0].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].queue.dataQueue queueLength:max 6
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.HTTPserver.eth[0].queue.dataQueue queueLength:timeavg 0.013103293145177
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.HTTPserver.eth[0].queue.dataQueue rcvdPk:count 1978
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.HTTPserver.eth[0].queue.dataQueue rcvdPk:sum(packetBytes) 2961626
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].mac "simulated time" 20
+scalar Finalnwk.HTTPserver.eth[0].mac full-duplex 1
+scalar Finalnwk.HTTPserver.eth[0].mac "frames/sec sent" 207.55
+scalar Finalnwk.HTTPserver.eth[0].mac "frames/sec rcvd" 176.15
+scalar Finalnwk.HTTPserver.eth[0].mac "bits/sec sent" 2488281.6
+scalar Finalnwk.HTTPserver.eth[0].mac "bits/sec rcvd" 91286.4
+scalar Finalnwk.HTTPserver.eth[0].mac "rx channel idle (%)" 99.89744
+scalar Finalnwk.HTTPserver.eth[0].mac "rx channel utilization (%)" 0.10256
+scalar Finalnwk.HTTPserver.eth[0].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.HTTPserver.eth[0].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.HTTPserver.eth[0].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.HTTPserver.eth[0].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].mac rxPkFromHL:count 1978
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.HTTPserver.eth[0].mac rxPkFromHL:sum(packetBytes) 2961626
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.HTTPserver.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.HTTPserver.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.HTTPserver.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.HTTPserver.eth[0].mac rxPkOk:count 1620
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.HTTPserver.eth[0].mac rxPkOk:sum(packetBytes) 105052
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].mac txPk:count 1978
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.HTTPserver.eth[0].mac txPk:sum(packetBytes) 2961626
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].mac passedUpPk:count 1620
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.HTTPserver.eth[0].mac passedUpPk:sum(packetBytes) 105052
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar Finalnwk.HTTPserver.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar Finalnwk.HTTPserver.eth[0].encap decapPk:count 1620
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar Finalnwk.HTTPserver.eth[0].encap decapPk:sum(packetBytes) 66256
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.eth[0].encap encapPk:count 1978
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar Finalnwk.HTTPserver.eth[0].encap encapPk:sum(packetBytes) 2925896
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar Finalnwk.HTTPserver.tcpApp[0] rcvdPk:count 7
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.HTTPserver.tcpApp[0] rcvdPk:sum(packetBytes) 1400
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+statistic Finalnwk.HTTPserver.tcpApp[0] endToEndDelay:histogram
+field count 7
+field mean 0.02775485923
+field stddev 0.00048068642712213
+field min 0.027417042796
+field max 0.028677484159
+field sum 0.19428401461
+field sqrsum 0.0053937118327871
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0.0267868221145	0
+bin	0.0268708515387	0
+bin	0.0269548809629	0
+bin	0.0270389103871	0
+bin	0.0271229398113	0
+bin	0.0272069692355	0
+bin	0.0272909986597	0
+bin	0.0273750280839	2
+bin	0.0274590575081	2
+bin	0.0275430869323	1
+bin	0.0276271163565	0
+bin	0.0277111457807	0
+bin	0.0277951752049	0
+bin	0.0278792046291	0
+bin	0.0279632340533	0
+bin	0.0280472634775	0
+bin	0.0281312929017	1
+bin	0.0282153223259	0
+bin	0.0282993517501	0
+bin	0.0283833811743	0
+bin	0.0284674105985	0
+bin	0.0285514400227	0
+bin	0.0286354694469	1
+bin	0.0287194988711	0
+bin	0.0288035282953	0
+bin	0.0288875577195	0
+bin	0.0289715871437	0
+bin	0.0290556165679	0
+bin	0.0291396459921	0
+bin	0.0292236754163	0
+bin	0.0293077048405	0
+scalar Finalnwk.HTTPserver.tcpApp[0] sentPk:count 7
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.HTTPserver.tcpApp[0] sentPk:sum(packetBytes) 2800000
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+scalar Finalnwk.FTPserver.networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.FTPserver.networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.FTPserver.networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.FTPserver.networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.FTPserver.networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.FTPserver.lo0.outputHook[0] duration 20
+scalar Finalnwk.FTPserver.lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.FTPserver.lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.FTPserver.lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.FTPserver.lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.FTPserver.lo0.inputHook[0] duration 20
+scalar Finalnwk.FTPserver.lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.FTPserver.lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.FTPserver.lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.FTPserver.lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.FTPserver.lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.FTPserver.lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.FTPserver.lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.FTPserver.lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.FTPserver.lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.FTPserver.lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].outputHook[0] duration 20
+scalar Finalnwk.FTPserver.eth[0].outputHook[0] "total packets" 10902
+scalar Finalnwk.FTPserver.eth[0].outputHook[0] "total bits" 3488608
+scalar Finalnwk.FTPserver.eth[0].outputHook[0] "avg throughput (bit/s)" 174430.4
+scalar Finalnwk.FTPserver.eth[0].outputHook[0] "avg packets/s" 545.1
+scalar Finalnwk.FTPserver.eth[0].inputHook[0] duration 20
+scalar Finalnwk.FTPserver.eth[0].inputHook[0] "total packets" 10903
+scalar Finalnwk.FTPserver.eth[0].inputHook[0] "total bits" 130778248
+scalar Finalnwk.FTPserver.eth[0].inputHook[0] "avg throughput (bit/s)" 6538912.4
+scalar Finalnwk.FTPserver.eth[0].inputHook[0] "avg packets/s" 545.15
+statistic Finalnwk.FTPserver.eth[0].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.FTPserver.eth[0].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.FTPserver.eth[0].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.FTPserver.eth[0].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.FTPserver.eth[0].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.FTPserver.eth[0].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.FTPserver.eth[0].queue.dataQueue queueingTime:histogram
+field count 6479
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	6479
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.FTPserver.eth[0].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.FTPserver.eth[0].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].queue.dataQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.FTPserver.eth[0].queue.dataQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.FTPserver.eth[0].queue.dataQueue rcvdPk:count 6479
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.FTPserver.eth[0].queue.dataQueue rcvdPk:sum(packetBytes) 414656
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].mac "simulated time" 20
+scalar Finalnwk.FTPserver.eth[0].mac full-duplex 1
+scalar Finalnwk.FTPserver.eth[0].mac "frames/sec sent" 545.1
+scalar Finalnwk.FTPserver.eth[0].mac "frames/sec rcvd" 545.15
+scalar Finalnwk.FTPserver.eth[0].mac "bits/sec sent" 279092
+scalar Finalnwk.FTPserver.eth[0].mac "bits/sec rcvd" 6617423.6
+scalar Finalnwk.FTPserver.eth[0].mac "rx channel idle (%)" 93.3476868
+scalar Finalnwk.FTPserver.eth[0].mac "rx channel utilization (%)" 6.6523132
+scalar Finalnwk.FTPserver.eth[0].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.FTPserver.eth[0].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.FTPserver.eth[0].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.FTPserver.eth[0].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].mac rxPkFromHL:count 6479
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.FTPserver.eth[0].mac rxPkFromHL:sum(packetBytes) 414656
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.FTPserver.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.FTPserver.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.FTPserver.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.FTPserver.eth[0].mac rxPkOk:count 6479
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.FTPserver.eth[0].mac rxPkOk:sum(packetBytes) 9832287
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].mac txPk:count 6479
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.FTPserver.eth[0].mac txPk:sum(packetBytes) 414656
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].mac passedUpPk:count 6479
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.FTPserver.eth[0].mac passedUpPk:sum(packetBytes) 9832287
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar Finalnwk.FTPserver.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar Finalnwk.FTPserver.eth[0].encap decapPk:count 6479
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar Finalnwk.FTPserver.eth[0].encap decapPk:sum(packetBytes) 9715665
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar Finalnwk.FTPserver.eth[0].encap encapPk:count 6479
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar Finalnwk.FTPserver.eth[0].encap encapPk:sum(packetBytes) 259160
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar Finalnwk.FTPserver.tcpApp[0] rcvdPk:count 0
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.FTPserver.tcpApp[0] rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+statistic Finalnwk.FTPserver.tcpApp[0] endToEndDelay:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.UDPserver.networkLayer.arp failedARPResolution:count 0
+attr title "ARP failed resolutions, count"
+scalar Finalnwk.UDPserver.networkLayer.arp completedARPResolution:count 0
+attr title "ARP completed resolutions, count"
+scalar Finalnwk.UDPserver.networkLayer.arp initiatedARPResolution:count 0
+attr title "ARP initiated resolutions, count"
+scalar Finalnwk.UDPserver.networkLayer.arp sentReply:count 0
+attr title "ARP replies sent, count"
+scalar Finalnwk.UDPserver.networkLayer.arp sentReq:count 0
+attr title "ARP request sent, count"
+scalar Finalnwk.UDPserver.lo0.outputHook[0] duration 20
+scalar Finalnwk.UDPserver.lo0.outputHook[0] "total packets" 0
+scalar Finalnwk.UDPserver.lo0.outputHook[0] "total bits" 0
+scalar Finalnwk.UDPserver.lo0.outputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.UDPserver.lo0.outputHook[0] "avg packets/s" 0
+scalar Finalnwk.UDPserver.lo0.inputHook[0] duration 20
+scalar Finalnwk.UDPserver.lo0.inputHook[0] "total packets" 0
+scalar Finalnwk.UDPserver.lo0.inputHook[0] "total bits" 0
+scalar Finalnwk.UDPserver.lo0.inputHook[0] "avg throughput (bit/s)" 0
+scalar Finalnwk.UDPserver.lo0.inputHook[0] "avg packets/s" 0
+scalar Finalnwk.UDPserver.lo0.lo droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.UDPserver.lo0.lo droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.UDPserver.lo0.lo rcvdPkFromHL:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Finalnwk.UDPserver.lo0.lo rcvdPkFromHL:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Finalnwk.UDPserver.lo0.lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.UDPserver.lo0.lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].outputHook[0] duration 20
+scalar Finalnwk.UDPserver.eth[0].outputHook[0] "total packets" 753
+scalar Finalnwk.UDPserver.eth[0].outputHook[0] "total bits" 2847240
+scalar Finalnwk.UDPserver.eth[0].outputHook[0] "avg throughput (bit/s)" 142362
+scalar Finalnwk.UDPserver.eth[0].outputHook[0] "avg packets/s" 37.65
+scalar Finalnwk.UDPserver.eth[0].inputHook[0] duration 20
+scalar Finalnwk.UDPserver.eth[0].inputHook[0] "total packets" 745
+scalar Finalnwk.UDPserver.eth[0].inputHook[0] "total bits" 2822696
+scalar Finalnwk.UDPserver.eth[0].inputHook[0] "avg throughput (bit/s)" 141134.8
+scalar Finalnwk.UDPserver.eth[0].inputHook[0] "avg packets/s" 37.25
+statistic Finalnwk.UDPserver.eth[0].queue.pauseQueue queueingTime:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.UDPserver.eth[0].queue.pauseQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.UDPserver.eth[0].queue.pauseQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].queue.pauseQueue queueLength:max nan
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.UDPserver.eth[0].queue.pauseQueue queueLength:timeavg nan
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.UDPserver.eth[0].queue.pauseQueue rcvdPk:count 0
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.UDPserver.eth[0].queue.pauseQueue rcvdPk:sum(packetBytes) 0
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+statistic Finalnwk.UDPserver.eth[0].queue.dataQueue queueingTime:histogram
+field count 501
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "queueing time, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	501
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Finalnwk.UDPserver.eth[0].queue.dataQueue dropPk:count 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, count"
+scalar Finalnwk.UDPserver.eth[0].queue.dataQueue dropPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkByQueue
+attr title "dropped packets, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].queue.dataQueue queueLength:max 1
+attr interpolationmode sample-hold
+attr title "queue length, max"
+scalar Finalnwk.UDPserver.eth[0].queue.dataQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr title "queue length, timeavg"
+scalar Finalnwk.UDPserver.eth[0].queue.dataQueue rcvdPk:count 501
+attr interpolationmode none
+attr title "received packets, count"
+scalar Finalnwk.UDPserver.eth[0].queue.dataQueue rcvdPk:sum(packetBytes) 244005
+attr interpolationmode none
+attr title "received packets, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].mac "simulated time" 20
+scalar Finalnwk.UDPserver.eth[0].mac full-duplex 1
+scalar Finalnwk.UDPserver.eth[0].mac "frames/sec sent" 37.6
+scalar Finalnwk.UDPserver.eth[0].mac "frames/sec rcvd" 37.25
+scalar Finalnwk.UDPserver.eth[0].mac "bits/sec sent" 147695.2
+scalar Finalnwk.UDPserver.eth[0].mac "bits/sec rcvd" 146513.2
+scalar Finalnwk.UDPserver.eth[0].mac "rx channel idle (%)" 99.8511028
+scalar Finalnwk.UDPserver.eth[0].mac "rx channel utilization (%)" 0.1488972
+scalar Finalnwk.UDPserver.eth[0].mac droppedPkNotForUs:count 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, count"
+scalar Finalnwk.UDPserver.eth[0].mac droppedPkNotForUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkNotForUs
+attr title "packets dropped/not for us, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].mac droppedPkIfaceDown:count 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, count"
+scalar Finalnwk.UDPserver.eth[0].mac droppedPkIfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkIfaceDown
+attr title "packets dropped/interface down, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].mac droppedPkBitError:count 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, count"
+scalar Finalnwk.UDPserver.eth[0].mac droppedPkBitError:sum(packetBytes) 0
+attr interpolationmode none
+attr source dropPkBitError
+attr title "packets dropped/bit error, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].mac rxPkFromHL:count 501
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, count"
+scalar Finalnwk.UDPserver.eth[0].mac rxPkFromHL:sum(packetBytes) 244005
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar Finalnwk.UDPserver.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar Finalnwk.UDPserver.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar Finalnwk.UDPserver.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar Finalnwk.UDPserver.eth[0].mac rxPkOk:count 499
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar Finalnwk.UDPserver.eth[0].mac rxPkOk:sum(packetBytes) 244033
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].mac txPk:count 500
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, count"
+scalar Finalnwk.UDPserver.eth[0].mac txPk:sum(packetBytes) 243748
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].mac passedUpPk:count 499
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Finalnwk.UDPserver.eth[0].mac passedUpPk:sum(packetBytes) 244033
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar Finalnwk.UDPserver.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar Finalnwk.UDPserver.eth[0].encap decapPk:count 499
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar Finalnwk.UDPserver.eth[0].encap decapPk:sum(packetBytes) 235051
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar Finalnwk.UDPserver.eth[0].encap encapPk:count 501
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar Finalnwk.UDPserver.eth[0].encap encapPk:sum(packetBytes) 234987
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar Finalnwk.UDPserver.udpApp[0] "lost packets (due delay)" 249
+scalar Finalnwk.UDPserver.udpApp[0] "packets avg_delays" 0.16876053572075
+scalar Finalnwk.UDPserver.udpApp[0] "packets sent" 751
+scalar Finalnwk.UDPserver.udpApp[0] "packets received" 494
+scalar Finalnwk.UDPserver.udpApp[0] rcvdPk:count 250
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.UDPserver.udpApp[0] rcvdPk:sum(packetBytes) 111081
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+statistic Finalnwk.UDPserver.udpApp[0] rcvdPkLifetime:stats
+field count 250
+field mean 0.129556607954
+field stddev 0.016725948982583
+field min 0.070347634034
+field max 0.149908674034
+field sum 32.3891519885
+field sqrsum 4.2658882511092
+attr interpolationmode none
+attr source messageAge(rcvdPk)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar Finalnwk.UDPserver.udpApp[0] sentPk:count 501
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.UDPserver.udpApp[0] sentPk:sum(packetBytes) 220959
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+scalar Finalnwk.UDPserver.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr title "packets dropped (checksum error), count"
+scalar Finalnwk.UDPserver.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr title "packets dropped (wrong port), count"
+scalar Finalnwk.UDPserver.udp passedUpPk:count 499
+attr interpolationmode none
+attr title "packets passed up, count"
+scalar Finalnwk.UDPserver.udp rcvdPk:count 499
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, count"
+scalar Finalnwk.UDPserver.udp rcvdPk:sum(packetBytes) 225071
+attr interpolationmode none
+attr source rcvdPk
+attr title "packets received, sum(packetBytes)"
+scalar Finalnwk.UDPserver.udp sentPk:count 501
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, count"
+scalar Finalnwk.UDPserver.udp sentPk:sum(packetBytes) 224967
+attr interpolationmode none
+attr source sentPk
+attr title "packets sent, sum(packetBytes)"
+

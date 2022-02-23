@@ -1,0 +1,84 @@
+# Parametersheet 10
+
+- Only FTP Upload is activated for one team member
+- Only FTP Download is activated for the other team member
+
+Here are some hints for parameters to be added for the ini-file. You have to add some more according to your task description  
+
+[General]
+network = 
+repeat = 
+sim-time-limit = 
+warmup-period = 
+
+# Result parameters
+# with leading / the file path is absolute
+# without leading / the path is relative to the project directory
+result-dir = 
+
+# some can be enabled if desired, but
+# this produces a lot of data
+**.thruputMeter.**.vector-recording = true
+# disable all others
+**.vector-recording = false
+
+## With the following two lines you can record all events for
+## detailed examination in the graphical OMNeT++
+#eventlog-file = omnetpp.log
+#record-eventlog = true
+
+## With the following three lines you can redirect the output of the 
+## stdout print to a file for detailed examination
+#cmdenv-express-mode = false
+#cmdenv-redirect-output = true
+#cmdenv-output-file = log.txt
+
+**.constraintAreaMinX = 0m
+**.constraintAreaMinY = 0m
+**.constraintAreaMinZ = 0m
+**.constraintAreaMaxX = 600m
+**.constraintAreaMaxY = 400m
+**.constraintAreaMaxZ = 0m
+
+**.mobilityType =  
+**.mobility.initFromDisplayString = false  
+**.<name of the access point>.mobility.initialX = 15m
+**.<name of the access point>.mobility.initialY = 5m
+**.<name of the access point>.mobility.initialZ = 0m
+**.<name of cluster member>[*].mobility.initialX = 
+**.<name of cluster member>[*].mobility.initialY = 
+**.<name of cluster member>[*].mobility.initialZ = 0m
+**.<name of ftp cluster member>.mobility.initialX = 
+**.<name of ftp cluster member>.mobility.initialY = 
+**.<name of ftp cluster member>.mobility.initialZ = 0m
+**.<name of sensor car>.mobility.initialX = 
+**.<name of sensor car>.mobility.initialY = 
+**.<name of sensor car>.mobility.initialZ = 0m
+
+# Some tcp settings
+**.tcpType = "TCP"
+**.tcp.tcpAlgorithmClass = 
+**.tcp.windowScalingSupport = true
+**.tcpApp[*].dataTransferMode = "object"
+**.tcp.mss = 
+**.tcp.advertisedWindow =  # do not use this.mss here but directly give a number
+
+# Routing
+**.networkConfiguratorModule = ""
+**.<name of router cluster head>.routingTable.routingFile = 
+**.<name of router at test lab>.routingTable.routingFile = 
+
+# channel physical parameters
+**.receiver.sensitivity = -110dBm
+
+# NIC settings
+**.mac.address = "auto"
+**.mac.maxQueueSize = 
+**.mac.rtsThresholdBytes = 3000B
+**.wlan[*].mac.retryLimit = 7
+**.wlan[*].mac.cwMinData = 7
+**.opMode = "g(mixed)"
+
+# Group specific parameters
+**.<xxxxxxx>.udpApp[0].messageLength = # from trace file tracefile_10.csv
+**.<xxxxxxx>.udpApp[0].sendInterval = 20ms
